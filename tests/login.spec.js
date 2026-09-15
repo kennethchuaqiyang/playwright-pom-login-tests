@@ -14,7 +14,7 @@ const CUSTOMER_USERS = [
   { username: 'customer2', password: 'Cust@456', passcode: '444444' },
 ];
 
-/**
+/***
  * Runs the full 10-test suite (correct + 4 wrong combos, for both password
  * and passcode) for a given user type.
  * @param {'admin'|'customer'} userType
