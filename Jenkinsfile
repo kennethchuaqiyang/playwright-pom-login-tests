@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'mcr.microsoft.com/playwright:v1.63.0-jammy'
+        }
+    }
 
     options {
         timestamps()
@@ -8,19 +12,13 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                bat 'npm ci'
-            }
-        }
-
-        stage('Install Playwright browsers') {
-            steps {
-                bat 'npx playwright install --with-deps'
+                sh 'npm ci'
             }
         }
 
         stage('Run tests') {
             steps {
-                bat 'npx playwright test'
+                sh 'npx playwright test'
             }
         }
     }
